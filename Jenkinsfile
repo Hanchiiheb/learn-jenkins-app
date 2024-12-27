@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh '''
                     # Uncomment the line below if needed to validate the build
-                    # test -f build/index.html
+                    test -f build/index.html
                     npm test
                 '''
             }
