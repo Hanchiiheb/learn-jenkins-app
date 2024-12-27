@@ -23,9 +23,14 @@ pipeline {
         }
 
         stage('Tests') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
             steps {
                 sh '''
-                    # Uncomment the line below if needed to validate the build
                     test -f build/index.html
                     npm test
                 '''
